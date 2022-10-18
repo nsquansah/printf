@@ -1,84 +1,58 @@
-.TH _printf 1 "February 2018" "" "Linux Programmer's Manual"
-.SH NAME
-.B _printf
-- format and print data.
+.TH man 3 "29 Octobre 2019" "_printf man page"
+. SH NAME
+printf - prints the character(s)
 .SH SYNOPSIS
-.B #include <stdio.h>
+#include "holberton.h"
+int _printf(const char *format, ...);
 
-.B int _printf(const char
-*\fIformat\fR,...);
-...
-.SH DESCRIPTION
-_printf() will produce output according to the \fIformat\fR as described below. _printf() will print to \fIstdout\fR, the standard output stream;
+## :books: DESCRIPTION :books:
 
-.B FORMAT
-Format is a character string of ordinary characters (not %), which are copied unchanged to stdout. Conversion specifiers will result in taking in 0 or more arguments. Each one starts with a % and ends with the specifier. In between there could be a \fIflag\fR, an optional minimum \fIfield\fR \fIwidth\fR, an optional \fIprecision\fR and an optional \fIlength/fR \fImodifier\fR.
+printf() functions are inbuilt library functions in C programming language which are available in C library by default. These functions are declared and related macros are defined in stdio.h which is a header file in C language.
+We have to include stdio.h file as shown in below C program to make use of these printf() and scanf() library functions in C language.
+In C programming language, printf() function used to print the character, string, float, integer, octal and hexadecimal values onto the output screen.
+We use printf() function with %d format specifier to display the value of an integer variable.
+Similarly %c is used to display character, %f for float variable, %s for string variable, %lf for double and %x for hexadecimal variable.
+To generate a newline,we use \n in C printf() statement.
 
-Arguments must match with the conversion specifier and are used in the order they are given, each specifier will call for the next argument.
+.RS 3
+c   prints a character variable
+.br
+s   prints a string variable
+.br
+d   prints an integer and takes an integer value as a signed decimal integer
+.br
+i   prints an integer and takes in a decimal, hexadecimal, or octal type
+.br
+b   prints a binary number
+.br
+u   prints an unsigned integer
+.br
+o   prints an octal number
+.br
+x   prints a hexadecimal number
+.br
+X   prints a hexadecimal number in caps
+.br
+.RE
 
-.B Flag characters
+.SH RETURN
+The function will return the number of characters printed. If unsuccessful the function will return null.
+.SH EXAMPLES
+To print "Today is Tuesday" you would do as follow, where day is a pointer to a string:
 
-The % sign is followed by zero or more of the following flags:
+ #include "Holberton.h"
+ _printf("Today is %s", day);
 
-\fB#\fR   produces a 0 for octal conversion, '0X' or '0x' for hex conversions
+To print "It is 1" you would do as follows, where time is a pointer to a integer:
 
-\fB0\fR	  value should be zero padded left justified. With the '-' flag the 0 flag is ignored. if precsion is given, the 0 flag is ignored as well.
+ #include "Holberton.h"
+ _printf("It is %d", time);
 
-\fB-\fR	  left justifies the field
+## :hash: Bot Twitter :hash: 
 
-\fB' '\fR (a space) blank should be left before a positive number
+ * [@DouiriEddin](https://twitter.com/DouiriEddin)  
+ * [@AfineSami](https://twitter.com/AfineSami)  
+### :email: mail :email:
 
-\fB+\fR	  A sign (+ or -) placed before a number, a plus overrides a space if both used.
-
-\fB*\fR A sign to set a custom width or precision based on an argument.
-.B Field Width
-
-Optional decimal digit specifying the total fields width.
-
-.B Precision
-
-Precision is setting the size of the number of digits, must be started with a '.' followed by a decimal.
-
-.B length modifier
-
-This only effects integer conversion specifiers, changes the type to correspond to the argument type given.
-
-\fBl\fR - long conversion
-
-\fBll\fR - long long conversion
-
-\fBh\fR - short int conversion
-
-\fBhh\fR - signed or unsigned char conversion
-
-.B Conversion Specifiers
-
-A chracter that will specify the type of conversion to apply for the argument given.
-
-\fBd,i\fR an \fIint\fR argument with signed decimal notation
-
-\fBo,x,X\fR  an \fIint\fR argument with unsigned decimal notation. o converts to octal, x and X converts to hexadecimal with lower and uppercase letters from aA-fF.
-
-\fBc\fR	     takes a character argument.
-
-\fBs\fR	     takes a char * argument
-
-\fBp\fR	     takes a pointer argument and returns address
-
-\fBr\fR	     takes a char * argument and reverses it
-
-\fBR\fR	     takes a char * argument and produces ROT-13 Encrypted version
-
-\fBS\fR	     takes a char * argument and produces the same string along with non printable characters in hex form.
-
-\fB%\fR	     prints a %
-
-\fB b\fR     take an unsigned int argument and prints out the binary
-
-.SH EXAMPLE
-
-int _printf(%s\\n,\*(lqHello\*(rq); will read the %s and grab the first argument, the string hello. It will print the argument and the move to the next character in the format string. It will read the new line character and create a newline afterwards.
-
-
-.SH AUTHOR
-Sidney Burkett, Daniel Kazemian
+ * [Lafine Sami](1124@holbertonschool.com) 
+ * [Chems Eddin Douiri](1123@holbertonschool.com)
